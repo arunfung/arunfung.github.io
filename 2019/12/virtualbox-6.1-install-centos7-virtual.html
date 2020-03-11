@@ -7,19 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="referrer" content="no-referrer" />
-<title>标签: zsh - Arun Fung Blog</title>
+<title>VirtualBox 6.1 安装 CentOS7 虚拟主机 - Arun Fung Blog</title>
 
 
-    <meta name="description" content="Arun Fung 的技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arun Fung Blog">
-<meta property="og:url" content="https://blog.arunfung.com/tags/zsh/index.html">
+    <meta name="description" content="介绍需求：在本地运行一套和线上一样的环境，用于本地开发使用  VirtualBox 是一款可以运行Windows、Mac、Linux操作系统，功能强大的开源虚拟机软件  CentOS 是 Linux 操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VirtualBox 6.1 安装 CentOS7 虚拟主机">
+<meta property="og:url" content="https://blog.arunfung.com/2019/12/virtualbox-6.1-install-centos7-virtual.html">
 <meta property="og:site_name" content="Arun Fung Blog">
-<meta property="og:description" content="Arun Fung 的技术博客">
+<meta property="og:description" content="介绍需求：在本地运行一套和线上一样的环境，用于本地开发使用  VirtualBox 是一款可以运行Windows、Mac、Linux操作系统，功能强大的开源虚拟机软件  CentOS 是 Linux 操作系统">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.arunfung.com/images/og_image.png">
+<meta property="article:published_time" content="2019-12-24T12:19:00.000Z">
+<meta property="article:modified_time" content="2020-03-11T07:33:51.417Z">
 <meta property="article:author" content="Arun Fung">
-<meta property="article:tag" content="arunfung 博客 PHP">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="swoole-learn">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.arunfung.com/images/og_image.png">
 
@@ -79,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Arun Fung Blog" height="28">
+                <img src="/images/logo.svg" alt="VirtualBox 6.1 安装 CentOS7 虚拟主机" height="28">
             
             </a>
         </div>
@@ -120,41 +123,24 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">zsh</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/04/ubuntu-install-oh-my-zsh.html" class="image is-7by1">
-            <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311121350.jpg" alt="Ubuntu 16.04 下安装 zsh 和 oh-my-zsh">
-        </a>
-    </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-14T04:41:12.000Z">2019-04-14</time>
+                <time class="level-item has-text-grey" datetime="2019-12-24T12:19:00.000Z">2019-12-24</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Ubuntu/">Ubuntu</a>
+                <a class="has-link-grey -link" href="/categories/CentOS/">CentOS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 285 个字)
+                    7 分钟 读完 (大约 1106 个字)
                 </span>
                 
                 
@@ -163,22 +149,53 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/04/ubuntu-install-oh-my-zsh.html">Ubuntu 16.04 下安装 zsh 和 oh-my-zsh</a>
+                VirtualBox 6.1 安装 CentOS7 虚拟主机
             
         </h1>
         <div class="content">
-            <p>一个能使你命令行变得漂亮的工具！</p>
-<p>提示：Mac系统下是默认安装了zsh，linux没有安装，所以需要自行安装</p>
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>需求：在本地运行一套和线上一样的环境，用于本地开发使用</p>
+<ul>
+<li><p><a href="https://www.virtualbox.org">VirtualBox</a> 是一款可以运行Windows、Mac、Linux操作系统，功能强大的开源虚拟机软件</p>
+</li>
+<li><p><a href="https://centos.org/">CentOS</a> 是 Linux 操作系统</p>
+<a id="more"></a>
+
+</li>
+</ul>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><ul>
+<li><p>从 VirtualBox 官网下载并安装好，安装后打开是以下这样的：<br><img src="http://file.arunfung.com/file/images/20191224153813.png?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10" alt=""></p>
+</li>
+<li><p>下载一个 CentOS 镜像，最好下载 <a href="https://wiki.centos.org/Download">minimal</a> 版本，只带命令行就够了</p>
+</li>
+</ul>
+<h4 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h4><blockquote>
+<p>tips:可以将 VirtualBox 软件设置成中文，preferences-》language-》简体中文</p>
+</blockquote>
+<ol>
+<li><p>创建虚拟机<br>点击新建(new) -》输入名称 centos -》 会自动调整类型和版本 -》然后点继续<br><img src="http://file.arunfung.com/file/images/20191224171918.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""></p>
+</li>
+<li><p>设置内存<br>根据自己机器内存大小设置，以及同时启动几个虚拟主机，我这边设置 1G（默认1024M）-》然后点击继续<br><img src="http://file.arunfung.com/file/images/20191224173027.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""></p>
+</li>
+<li><p>创建虚拟硬盘<br>默认现在创建，点击创建-》虚拟硬盘文件类型默认，点继续-》存储在硬盘上默认动态分配，点击继续-》文件位置和大小，默认，点击创建<br><img src="http://file.arunfung.com/file/images/20191224173522.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>虚拟主机创建成功，接下来还要对刚创建的主机进行设置，</p>
+</li>
+<li><p>设置虚拟主机<br>点击刚创建的虚拟机-》点击系统<br><img src="http://file.arunfung.com/file/images/20191224174207.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>启动顺序将软驱调整为最后一位<br><img src="http://file.arunfung.com/file/images/20191224174548.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>选择存储tab，1点击没有盘片-》2点击小圆-》选择本地硬盘上的 CentOS 镜像-》然后点击OK<br><img src="http://file.arunfung.com/file/images/20191224180532.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>网络选择桥接网卡<br><img src="http://file.arunfung.com/file/images/20191225143733.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""></p>
+</li>
+</ol>
+<ol>
+<li>启动虚拟主机<br>选择创建的虚拟主机，点击启动-》弹出询问继续点启动<br><img src="http://file.arunfung.com/file/images/20191224181450.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>默认回车安装<br><img src="http://file.arunfung.com/file/images/20191224181741.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>设置语言，默认英语，点击继续吧（continue）<br><img src="http://file.arunfung.com/file/images/20191224182107.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>设置下地区和时间<br><img src="http://file.arunfung.com/file/images/20191224182328.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>选择亚洲和上海，然后点击完成（done）<br><img src="http://file.arunfung.com/file/images/20191224182521.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>设置存储在哪，点击进入选择<br><img src="http://file.arunfung.com/file/images/20191224194009.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>1选择刚创建的虚拟硬盘-》2点击完成<br><img src="http://file.arunfung.com/file/images/20191224194410.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>点击开始安装<br><img src="http://file.arunfung.com/file/images/20191224194536.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>在安装的过程中需要设置一个root密码，也可以一并设置一个新用户<br><img src="http://file.arunfung.com/file/images/20191224194641.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""><br>然后就静静的等待安装完成吧，最后点击 reboot 重启即可<br><img src="http://file.arunfung.com/file/images/20191224195341.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""></li>
+</ol>
+<h4 id="如需查看ip配置请查看虚拟机-CentOS7-配置IP"><a href="#如需查看ip配置请查看虚拟机-CentOS7-配置IP" class="headerlink" title="如需查看ip配置请查看虚拟机 CentOS7 配置IP"></a>如需查看ip配置请查看<a href="">虚拟机 CentOS7 配置IP</a></h4>
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/04/ubuntu-install-oh-my-zsh.html#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/centos/" rel="tag">centos</a>, <a class="has-link-grey -link" href="/tags/swoole-learn/" rel="tag">swoole-learn</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -186,9 +203,47 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/arunfung_we_chart_pay.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/12/virtual-centos7-set-up-ip.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">虚拟机 CentOS7 配置IP</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/hierarchical-data-nested-set-model.html">
+                <span class="level-item">3、嵌套集合模型 - 分层数据 Hierarchical Data 探索</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1019,7 +1074,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Arun Fung Blog" height="28">
+                    <img src="/images/logo.svg" alt="VirtualBox 6.1 安装 CentOS7 虚拟主机" height="28">
                 
                 </a>
                 <p class="is-size-7">

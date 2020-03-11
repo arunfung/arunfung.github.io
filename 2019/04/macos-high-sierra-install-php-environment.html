@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="referrer" content="no-referrer" />
+<title>macOS High Sierra 10.13.3全新搭建PHP开发环境 - Arun Fung Blog</title>
+
+
+    <meta name="description" content="用了快三年的Mac Pro出现问题，苹果公司帮忙换了一台全新的，所以没办法，只能重新装环境，装平时开发所需的各种软件，本着乐于助人的雷锋精神也把这次搭建写出来，希望可以帮助更多人。 废话不多说进入正题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS High Sierra 10.13.3全新搭建PHP开发环境">
+<meta property="og:url" content="https://blog.arunfung.com/2019/04/macos-high-sierra-install-php-environment.html">
+<meta property="og:site_name" content="Arun Fung Blog">
+<meta property="og:description" content="用了快三年的Mac Pro出现问题，苹果公司帮忙换了一台全新的，所以没办法，只能重新装环境，装平时开发所需的各种软件，本着乐于助人的雷锋精神也把这次搭建写出来，希望可以帮助更多人。 废话不多说进入正题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://file.arunfung.com/file/images/20200310230510.jpg">
+<meta property="article:published_time" content="2019-04-09T06:59:32.000Z">
+<meta property="article:modified_time" content="2020-03-11T03:52:23.637Z">
+<meta property="article:author" content="Arun Fung">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="LNMP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://file.arunfung.com/file/images/20200310230510.jpg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/avatar.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="/cdn/fontawesome/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="macOS High Sierra 10.13.3全新搭建PHP开发环境" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://file.arunfung.com/file/images/20200310230510.jpg" alt="macOS High Sierra 10.13.3全新搭建PHP开发环境">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-09T06:59:32.000Z">2019-04-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Mac/">Mac</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    23 分钟 读完 (大约 3379 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                macOS High Sierra 10.13.3全新搭建PHP开发环境
+            
+        </h1>
+        <div class="content">
+            <p>用了快三年的Mac Pro出现问题，苹果公司帮忙换了一台全新的，所以没办法，只能重新装环境，装平时开发所需的各种软件，本着乐于助人的雷锋精神也把这次搭建写出来，希望可以帮助更多人。</p>
+<p><strong>废话不多说进入正题</strong></p>
+<a id="more"></a>
+
+<p>macOS Sierra 已经帮我们预装了 Ruby、PHP、Perl、Python 等常用的脚本语言，以及 Apache 服务器等等。</p>
+<h2 id="1-安装-Xcode"><a href="#1-安装-Xcode" class="headerlink" title="1.安装 Xcode"></a>1.安装 Xcode</h2><p>Xcode 是苹果出品的包含一系列工具及库的开发软件。<br>通过 App Store 安装最新版本的 Xcode。（如果你的Xcode是8.2之前的版本的话，在你编译PHP7.0+的时候会提示你“更新Xcode”版本）<br>我们一般不会用 Xcode 来开发 PHP 项目。但这一步也是必需的，因为 Xcode 会帮你附带安装一些如 Git 等必要的软件。当然你也可以通过源码包安装 Git<br>N多软件包都基于Xcode，既然必须要安装，所以我就把这个安装放在第一步。</p>
+<p>安装成功，哎公司网络比较差，只能晚上回家安装，大概等了2小时吧，size 5G左右，所以网络不好就提前安装一下吧。</p>
+<h2 id="2-安装-Xcode-Command-Line-Tools"><a href="#2-安装-Xcode-Command-Line-Tools" class="headerlink" title="2.安装 Xcode Command Line Tools"></a>2.安装 Xcode Command Line Tools</h2><p>这一步会帮你安装许多常见的基于 Unix 的工具。Xcode 命令行工具作为 Xcode 的一部分，包含了 GCC 编译器。在命令行中执行以下命令即可安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+
+<p>直接点击install，然后等待安装完成就好，哎等待总是漫长的。<br>Verify that you’ve successfully installed Xcode Command Line Tools:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xcode-select -p</span><br><span class="line">返回以下表示安装成功</span><br><span class="line">&#x2F;Applications&#x2F;Xcode.app&#x2F;Contents&#x2F;Developer</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装-Homebrew"><a href="#3-安装-Homebrew" class="headerlink" title="3.安装 Homebrew"></a>3.安装 Homebrew</h2><p><a href="https://brew.sh"><code>HomeBrew</code></a> 是macOS 软件包管理器，用来安装、升级以及卸载常用的软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>及时按回车键然后输入开机密码，等待安装完成<br>有时homebrew核心仓库没有我们所要的安装包，但在其他仓库中有，那我们可以自己添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">homebrew扩展仓库</span><br><span class="line">* 列出已有仓库：&#96; brew tap&#96;</span><br><span class="line">* 添加仓库：&#96; brew tap 仓库名 &#96;</span><br><span class="line">* 删除仓库：&#96; brew untap 仓库名&#96;</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，我们可以考虑更改下 Homebrew 源，因为国外源一直不是很给力，这里我们将 Homebrew 源改为中国科学技术大学开源软件镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;</span><br><span class="line">git remote set-url origin https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;brew.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-安装iTerm2"><a href="#4-安装iTerm2" class="headerlink" title="4. 安装iTerm2"></a>4. 安装iTerm2</h2><p><strong><a href="https://www.iterm2.com">iTerm2</a> 是 MAC 下最好的终端工具（没有之一）以及配合oh-my-zsh 及其插件，将是强大的神器</strong><br>下载iTerm2,打开会提示移动到application，或者在 Finder 中，将 iTerm 拖拽进入 Application 文件夹中。这样，你可以在 Launchpad 中启动 iTerm2。</p>
+<h3 id="4-1-安装-oh-my-zsh"><a href="#4-1-安装-oh-my-zsh" class="headerlink" title="4.1 安装 oh-my-zsh"></a>4.1 安装 oh-my-zsh</h3><p>接下来安装配合iTerm2使用的<a href="https://ohmyz.sh"><code>oh-my-zsh</code></a><br>首先查看系统支持的shell列表，Mac 系统自带了 zsh ，Linux上得安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;shells﻿</span><br><span class="line">zsh --version   &#x2F;&#x2F;查看版本</span><br></pre></td></tr></table></figure>
+
+<p>虽然Mac自带了zsh，如果你想要最新版的zsh，那么你用 <code>brew install zsh</code> 安装一个最新的吧（问题不大）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://file.arunfung.com/file/images/20200311100233.png?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""></p>
+<p>哇哦，iTerm2的界面瞬间舒服多了，有没有、有没有、有没有？（哈哈哈哈哈哈）</p>
+<p>不过默认的theme主题”robbyrussell”用起来感觉还是差了那么一点点，大多数coder都比较喜欢 <a href="https://github.com/agnoster/agnoster-zsh-theme"><code>agnoster.zsh-theme</code></a> 这个主题</p>
+<p><strong><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster">各种主题</a></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim ~&#x2F;.zshrc       &#x2F;&#x2F;打开这个配置文件</span><br><span class="line">ZSH_THEME&#x3D;&quot;robbyrussell&quot;﻿    找到这行主题配置</span><br><span class="line">更换成以下的主题名就好</span><br><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot; # (this is one of the fancy ones)</span><br><span class="line"># see https:&#x2F;&#x2F;github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;wiki&#x2F;Themes#agnoster</span><br></pre></td></tr></table></figure>
+
+<p>打开一个新终端看看目前是什么样的一个主题，不过貌似有一点不对，有一些字符不能正常显示，so我们来安装一个字体 <a href="https://github.com/powerline/fonts"><code>Powerline fonts</code></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># clone</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;powerline&#x2F;fonts.git --depth&#x3D;1</span><br><span class="line"># install</span><br><span class="line">cd fonts</span><br><span class="line">.&#x2F;install.sh</span><br><span class="line"># clean-up a bit</span><br><span class="line">cd ..</span><br><span class="line">rm -rf fonts</span><br></pre></td></tr></table></figure>
+
+<p>然后到iterm2的preferences &gt; profiles &gt; colors 配色设置选择一个(我比较喜欢这种类型的颜色)<br><a href="http://ethanschoonover.com/solarized">http://ethanschoonover.com/solarized</a>  配色主题<br>继续修改字体，改成刚安装成功的字体</p>
+<p><img src="http://file.arunfung.com/file/images/20200311100904.jpg?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""></p>
+<p>然后重开一个终端，发现会带上自己mac的用户名什么的，个人感觉挺多余的，so我自己来改变一下<br>首先进到存放主题的文件夹》复制agnoster.zsh-theme  &gt;  myagnoster.zsh-theme</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.oh-my-zsh&#x2F;themes  &#x2F;&#x2F;进入主题文件夹﻿</span><br><span class="line">cp agnoster.zsh-theme myagnoster.zsh-theme &#x2F;&#x2F;复制一份</span><br><span class="line">vim myagnoster.zsh-theme  打开</span><br><span class="line"> </span><br><span class="line">## Main prompt</span><br><span class="line">build_prompt() &#123;</span><br><span class="line">  RETVAL&#x3D;$?</span><br><span class="line">  prompt_status</span><br><span class="line">  prompt_virtualenv</span><br><span class="line"> #prompt_context</span><br><span class="line">  prompt_dir</span><br><span class="line">  prompt_git</span><br><span class="line">  prompt_hg</span><br><span class="line">  prompt_end</span><br><span class="line">&#125;</span><br><span class="line">只需把prompt_context用#注释掉即可</span><br><span class="line"> </span><br><span class="line">然后打开.zshrc  </span><br><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot;  》 ZSH_THEME&#x3D;&quot;myagnoster&quot; 改成这样就可以了</span><br><span class="line"> </span><br><span class="line">这样做的原因是避免升级有冲突</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-插件"><a href="#4-2-插件" class="headerlink" title="4.2 插件"></a>4.2 插件</h3><p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins"><code>oh my zsh</code> 自带插件</a><br>Oh My Zsh 本身自带了很多插件，比如说: git, autojump osx, 不过基本都没有启用，插件目录: ~/.oh-my-zsh/plugins</p>
+<h4 id="4-2-1-安装-zsh-syntax-highlighting"><a href="#4-2-1-安装-zsh-syntax-highlighting" class="headerlink" title="4.2.1 安装 zsh-syntax-highlighting"></a>4.2.1 安装 <a href="https://github.com/zsh-users/zsh-syntax-highlighting"><code>zsh-syntax-highlighting</code></a></h4><p>这个自动高亮效果的插件也是配合oh-my-zsh使用</p>
+<p>Oh-my-zsh插件形式的安装，还有更多安装方式大家可以去探索一下</p>
+<ul>
+<li>Clone this repository in oh-my-zsh’s plugins directory:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Activate the plugin in ~/.zshrc:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins&#x3D;( [plugins...] zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Source ~/.zshrc to take changes into account:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
+<p><img src="http://file.arunfung.com/file/images/20200311101136.png?watermark/4/text/YXJ1bmZ1bmc=/font/5b6u6L2v6ZuF6buR/fontsize/240/fill/IzAwMDAwMA==/dissolve/25/rotate/30/gravity/Center/dx/10/dy/10%7Cimageslim" alt=""></p>
+<p>命令可以正确高亮显示咯，这样可以避免命令输错的情况，是不是很智能</p>
+<h4 id="4-2-2-安装-zsh-autosuggestions"><a href="#4-2-2-安装-zsh-autosuggestions" class="headerlink" title="4.2.2 安装 zsh-autosuggestions"></a>4.2.2 安装 <a href="https://github.com/zsh-users/zsh-autosuggestions"><code>zsh-autosuggestions</code></a></h4><p>Oh My Zsh 插件形式安装</p>
+<ul>
+<li>Clone this repository into <code>$ZSH_CUSTOM/plugins</code> (by default <code>~/.oh-my-zsh/custom/plugins</code>)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $ZSH_CUSTOM&#x2F;plugins&#x2F;zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Add the plugin to the list of plugins for Oh My Zsh to load:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins&#x3D;(zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Source ~/.zshrc</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-3-安装-autojump"><a href="#4-2-3-安装-autojump" class="headerlink" title="4.2.3 安装 autojump"></a>4.2.3 安装 <a href="https://github.com/wting/autojump"><code>autojump</code></a></h4><p>autojump是一个命令行工具，它可以使用快捷命令，直接跳转到配置好的目录，而不用管现在身在何处，依赖zsh。<br><strong>OS X</strong><br>Homebrew is the recommended installation method for Mac OS X:（之前已经安装homebrew）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">brew install autojump</span><br><span class="line"></span><br><span class="line">vim ~&#x2F;.zshrc</span><br><span class="line">plugins&#x3D;( [plugins...] autojump) 添加autojump到.zshrc的plugins</span><br><span class="line"></span><br><span class="line">新添加一行</span><br><span class="line">[[ -s $(brew --prefix)&#x2F;etc&#x2F;profile.d&#x2F;autojump.sh ]] &amp;&amp; . $(brew --prefix)&#x2F;etc&#x2F;profile.d&#x2F;autojump.sh</span><br><span class="line"></span><br><span class="line">查看权重</span><br><span class="line">j --stat</span><br></pre></td></tr></table></figure>
+
+<p>然后新开一个终端就已经可以使用啦</p>
+<h3 id="4-3-iterm快捷键"><a href="#4-3-iterm快捷键" class="headerlink" title="4.3 iterm快捷键"></a>4.3 iterm快捷键</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">open . 在当前目录下打开finder</span><br><span class="line">⌘ + return 全屏</span><br><span class="line">⌘ + f 所查找的内容会被自动复制</span><br><span class="line">⌘ + d 横着分屏 &#x2F; ⌘ + shift + d 竖着分屏令</span><br><span class="line">⌘ + &#x2F; 光标位置</span><br><span class="line">⌘ + r 只是换到新一屏，不会像 clear 一样创建一个空屏</span><br><span class="line">ctrl + u 清除当前行</span><br><span class="line">ctrl + a 到行首</span><br><span class="line">ctrl + e 到行尾</span><br><span class="line">ctrl + w 删除光标之前的单词</span><br><span class="line">ctrl + k 删除到文本末尾</span><br><span class="line">⌘ + alt + 方向键 切换屏幕(用于hotkey window)</span><br><span class="line">⌘ + 方向键 切换tab</span><br><span class="line">ctrl + _ Undo</span><br><span class="line">ctrl + y Paste the last thing to be cut</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-oh-my-zsh-git插件别名"><a href="#4-4-oh-my-zsh-git插件别名" class="headerlink" title="4.4 oh-my-zsh git插件别名"></a>4.4 oh-my-zsh git插件别名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">alias ga&#x3D;&#39;git add&#39;</span><br><span class="line">alias gb&#x3D;&#39;git branch&#39;</span><br><span class="line">alias gba&#x3D;&#39;git branch -a&#39;</span><br><span class="line">alias gbd&#x3D;&#39;git branch -d&#39;</span><br><span class="line">alias gcam&#x3D;&#39;git commit -a -m&#39;</span><br><span class="line">alias gcb&#x3D;&#39;git checkout -b&#39;</span><br><span class="line">alias gco&#x3D;&#39;git checkout&#39;</span><br><span class="line">alias gcm&#x3D;&#39;git checkout master&#39;</span><br><span class="line">alias gcp&#x3D;&#39;git cherry-pick&#39;</span><br><span class="line">alias gd&#x3D;&#39;git diff&#39;</span><br><span class="line">alias gfo&#x3D;&#39;git fetch origin&#39;</span><br><span class="line">alias ggpush&#x3D;&#39;git push origin $(git_current_branch)&#39;</span><br><span class="line">alias ggsup&#x3D;&#39;git branch --set-upstream-to&#x3D;origin&#x2F;$(git_current_branch)&#39;</span><br><span class="line">alias glgp&#x3D;&#39;git log --stat -p&#39;</span><br><span class="line">alias gm&#x3D;&#39;git merge&#39;</span><br><span class="line">alias gp&#x3D;&#39;git push&#39;</span><br><span class="line">alias gst&#x3D;&#39;git status&#39;</span><br><span class="line">alias gsta&#x3D;&#39;git stash save&#39;</span><br><span class="line">alias gstp&#x3D;&#39;git stash pop&#39;</span><br><span class="line">alias gl&#x3D;&#39;git pull&#39;</span><br><span class="line">alias glg&#x3D;&#39;git log --stat&#39;</span><br><span class="line">alias glgp&#x3D;&#39;git log --stat -p&#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-安装-PHP"><a href="#5-安装-PHP" class="headerlink" title="5. 安装 PHP"></a>5. 安装 PHP</h2><p>Mac最新的系统已经自带php，个人比较喜欢安装最新的，所以这边升级一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">brew search php   &#x2F;&#x2F; 先搜索一下</span><br><span class="line"></span><br><span class="line">brew install php   &#x2F;&#x2F; 安装，等待安装完成</span><br><span class="line"></span><br><span class="line">新开一个tab输入php -v就可以看到最新版本了</span><br><span class="line"></span><br><span class="line">加入开机自启</span><br><span class="line">ln -sfv &#x2F;usr&#x2F;local&#x2F;opt&#x2F;php&#x2F;*.plist ~&#x2F;Library&#x2F;LaunchAgents</span><br><span class="line"></span><br><span class="line">如需切换PHP版本，可以使用 brew-php-switcher</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-安装-Composer"><a href="#6-安装-Composer" class="headerlink" title="6. 安装 Composer"></a>6. 安装 Composer</h2><p>Dependency Manager for PHP, PHP 的一个依赖管理工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew search composer</span><br><span class="line"></span><br><span class="line">brew install composer</span><br></pre></td></tr></table></figure>
+<p>安装成功啦，之后我们就可以通过composer来安装PHP的一些扩展包</p>
+<h2 id="7-安装-Mysql"><a href="#7-安装-Mysql" class="headerlink" title="7. 安装 Mysql"></a>7. 安装 Mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql  &#x2F;&#x2F;安装</span><br><span class="line"></span><br><span class="line">安装成功如下：</span><br><span class="line">We&#39;ve installed your MySQL database without a root password. To secure it run:</span><br><span class="line">    mysql_secure_installation</span><br><span class="line"> </span><br><span class="line">MySQL is configured to only allow connections from localhost by default</span><br><span class="line"> </span><br><span class="line">To connect run:</span><br><span class="line">    mysql -uroot</span><br><span class="line"> </span><br><span class="line">To have launchd start mysql now and restart at login:</span><br><span class="line">  brew services start mysql</span><br><span class="line">Or, if you don&#39;t want&#x2F;need a background service you can just run:</span><br><span class="line">  mysql.server start</span><br><span class="line"></span><br><span class="line">启动：</span><br><span class="line">mysql.server start</span><br><span class="line"></span><br><span class="line">加入开机自启</span><br><span class="line">ln -sfv &#x2F;usr&#x2F;local&#x2F;opt&#x2F;mysql&#x2F;*.plist ~&#x2F;Library&#x2F;LaunchAgents</span><br></pre></td></tr></table></figure>
+
+<p>运行密码配置<br>//运行mysql_secure_installation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br><span class="line"> </span><br><span class="line">Securing the MySQL server deployment.</span><br><span class="line"> </span><br><span class="line">Connecting to MySQL using a blank password.</span><br><span class="line"> </span><br><span class="line">VALIDATE PASSWORD PLUGIN can be used to test passwords  &#x2F;&#x2F;密码验证插件，为了提高安全性，需要验证密码</span><br><span class="line">and improve security. It checks the strength of password     &#x2F;&#x2F; 它会检查密码的强度</span><br><span class="line">and allows the users to set only those passwords which are      &#x2F;&#x2F;只允许用户设置足够安全的密码</span><br><span class="line">secure enough. Would you like to setup VALIDATE PASSWORD plugin?    &#x2F;&#x2F;你确定要安装验证密码插件吗?</span><br><span class="line"> </span><br><span class="line">Press y|Y for Yes, any other key for No: y      &#x2F;&#x2F;确定安装</span><br><span class="line"> </span><br><span class="line">There are three levels of password validation policy:   &#x2F;&#x2F;三个等级的验证策略</span><br><span class="line"> </span><br><span class="line">LOW    Length &gt;&#x3D; 8   &#x2F;&#x2F;最小长度大于等于8个字符</span><br><span class="line">MEDIUM Length &gt;&#x3D; 8, numeric, mixed case, and special characters     &#x2F;&#x2F;数字，字母，特殊字符 混合，具体的应该是至少1个数字，1个字母，1个特殊字符，长度不超过32个字符</span><br><span class="line">STRONG Length &gt;&#x3D; 8, numeric, mixed case, special characters and dictionary file     &#x2F;&#x2F;  最严格，加上了，字典文件</span><br><span class="line"> </span><br><span class="line">Please enter 0 &#x3D; LOW, 1 &#x3D; MEDIUM and 2 &#x3D; STRONG: 0       &#x2F;&#x2F;这里我选择0最简单的，</span><br><span class="line">Please set the password for root here.</span><br><span class="line"> </span><br><span class="line">New password:       &#x2F;&#x2F;输入密码</span><br><span class="line"> </span><br><span class="line">Re-enter new password:      &#x2F;&#x2F;重复输入密码</span><br><span class="line"> </span><br><span class="line">Estimated strength of the password: 50      &#x2F;&#x2F;密码强度的评级</span><br><span class="line">Do you wish to continue with the password provided?(Press y|Y for Yes, any other key for No) : y    &#x2F;&#x2F;是否使用刚输入的密码？</span><br><span class="line">By default, a MySQL installation has an anonymous user,     &#x2F;&#x2F;默认情况下，MySQL有一个匿名用户，</span><br><span class="line">allowing anyone to log into MySQL without having to have     &#x2F;&#x2F;这个匿名用户，不必有一个用户为他们创建，匿名用户允许任何人登录到MySQL，</span><br><span class="line">a user account created for them. This is intended only for   &#x2F;&#x2F;这只是为了方便测试使用</span><br><span class="line">testing, and to make the installation go a bit smoother.</span><br><span class="line">You should remove them before moving into a production  &#x2F;&#x2F;在正式环境使用的时候，建议你移除它</span><br><span class="line">environment.</span><br><span class="line"> </span><br><span class="line">Remove anonymous users? (Press y|Y for Yes, any other key for No) : y    &#x2F;&#x2F;提示移除匿名用户</span><br><span class="line">Success.</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">Normally, root should only be allowed to connect from    &#x2F;&#x2F;一般情况下，root用户只允许使用&quot;localhost&quot;方式登录，</span><br><span class="line">&#39;localhost&#39;. This ensures that someone cannot guess at  </span><br><span class="line">the root password from the network.  &#x2F;&#x2F; 以此确保，不能被某些人通过网络的方式访问</span><br><span class="line"> </span><br><span class="line">Disallow root login remotely? (Press y|Y for Yes, any other key for No) : no    &#x2F;&#x2F;不允许root远程登陆？</span><br><span class="line"> </span><br><span class="line"> ... skipping.</span><br><span class="line">By default, MySQL comes with a database named &#39;test&#39; that     &#x2F;&#x2F;默认情况下，MySQL数据库中</span><br><span class="line">anyone can access. This is also intended only for testing,        &#x2F;&#x2F;这也仅仅是为了测试</span><br><span class="line">and should be removed before moving into a production             &#x2F;&#x2F; 在正式环境下，应该移除掉</span><br><span class="line">environment.</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y  &#x2F;&#x2F;确认删除test数据库？</span><br><span class="line"> - Dropping test database...</span><br><span class="line">Success.</span><br><span class="line"> </span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line">Success.</span><br><span class="line"> </span><br><span class="line">Reloading the privilege tables will ensure that all changes</span><br><span class="line">made so far will take effect immediately.         &#x2F;&#x2F;刷新权限表，以确保所有的修改可以立刻生效</span><br><span class="line"> </span><br><span class="line">Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y      &#x2F;&#x2F;确认刷新</span><br><span class="line">Success.</span><br><span class="line"> </span><br><span class="line">All done!</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-安装-Laravel-Valet"><a href="#8-安装-Laravel-Valet" class="headerlink" title="8. 安装 Laravel Valet"></a>8. 安装 <a href="https://laravel.com/docs/5.6/valet">Laravel Valet</a></h2><p>这边我说明一下，本该安装 <code>NGINX</code>，因为我所接触的项目都是 <code>laravel</code> 或者 <code>lumen</code>，所以我这边安装这个 <code>laravel</code> 官方支持的 <code>valet</code> 开发环境，这个其实本身就是运用的 <code>nginx</code>，只是使用这个开发环境，开发 <code>laravel</code> 的很多项目就非常方便，我个人也比较建议使用，目前支持 Mac 和 linux 系统。<br>前面已经安装php和composer，这边就可以直接安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer global require laravel&#x2F;valet  &#x2F;&#x2F;先获取项目</span><br><span class="line">valet install       &#x2F;&#x2F;然后安装</span><br><span class="line">ping foobar.test    &#x2F;&#x2F;ping一下是否通</span><br></pre></td></tr></table></figure>
+
+<p>在家目录创建Sites文件夹，之后所有项目都放在这个文件夹中，访问的话也是文件夹名+.test就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~&#x2F;Sites</span><br><span class="line">cd ~&#x2F;Sites</span><br><span class="line">valet park  &#x2F;&#x2F;将这个目录设置为项目仓库</span><br><span class="line">valet path  &#x2F;&#x2F;查看valet 仓库路径</span><br><span class="line"></span><br><span class="line">这样就可以以这样的  http:&#x2F;&#x2F;blog.test 域名访问了</span><br></pre></td></tr></table></figure>
+
+<p>如果有切换PHP版本需求的用户，我觉得这个 <a href="https://github.com/philcook/brew-php-switcher">brew-php-switcher</a> 可能会比较适合</p>
+<h2 id="9-安装-Redis"><a href="#9-安装-Redis" class="headerlink" title="9. 安装 Redis"></a>9. 安装 Redis</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">brew search redis</span><br><span class="line">brew install redis</span><br><span class="line"></span><br><span class="line">默认配置在&#x2F;usr&#x2F;local&#x2F;etc&#x2F;redis.conf</span><br><span class="line"></span><br><span class="line">redis-server</span><br><span class="line"></span><br><span class="line">设置开机启动</span><br><span class="line">ln -sfv &#x2F;usr&#x2F;local&#x2F;opt&#x2F;redis&#x2F;*.plist ~&#x2F;Library&#x2F;LaunchAgents</span><br><span class="line"></span><br><span class="line">使用launchctl启动redis server</span><br><span class="line">launchctl load ~&#x2F;Library&#x2F;LaunchAgents&#x2F;homebrew.mxcl.redis.plist</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/LNMP/" rel="tag">LNMP</a>, <a class="has-link-grey -link" href="/tags/PHP/" rel="tag">PHP</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/arunfung_we_chart_pay.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/rabbitmq-application-scenarios.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">RabbitMQ的应用场景以及基本原理介绍</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/hello-world.html">
+                <span class="level-item">Hello World</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="https://www.gravatar.com/avatar/f68ccc37a26487c98f67fc82d87bd450?s=128" alt="Arun">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Arun
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        PHP Engineer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Asia/Shanghai</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            8
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            6
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            11
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/arunfung" target="_blank" rel="noopener">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/arunfung">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com/arunfung">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/arunfung">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://arunfung.com" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">arunfung</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">arunfung.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://learnku.com/users/7400" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Learnku</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">learnku.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/MQ/">
+            <span class="level-start">
+                <span class="level-item">MQ</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/MQ/RabbitMQ/">
+            <span class="level-start">
+                <span class="level-item">RabbitMQ</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Mac/">
+            <span class="level-start">
+                <span class="level-item">Mac</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ubuntu/">
+            <span class="level-start">
+                <span class="level-item">ubuntu</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E7%AE%97%E6%B3%95/">
+            <span class="level-start">
+                <span class="level-item">算法</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+            <span class="level-start">
+                <span class="level-item">面试题</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/AMQP/" style="font-size: 10px;">AMQP</a> <a href="/tags/Erlang/" style="font-size: 10px;">Erlang</a> <a href="/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/RabbitMQ/" style="font-size: 10px;">RabbitMQ</a> <a href="/tags/message/" style="font-size: 10px;">message</a> <a href="/tags/oh-my-zsh/" style="font-size: 10px;">oh-my-zsh</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB/" style="font-size: 20px;">无限极分类</a> <a href="/tags/%E9%80%92%E5%BD%92/" style="font-size: 10px;">递归</a>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/hierarchical-data-nested-set-model.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311123739.jpg" alt="3、嵌套集合模型 - 分层数据 Hierarchical Data 探索">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-15T10:28:46.000Z">2019-08-15</time></div>
+                    <a href="/2019/08/hierarchical-data-nested-set-model.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">3、嵌套集合模型 - 分层数据 Hierarchical Data 探索</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/hierarchical-data-adjacency-list-model.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311123739.jpg" alt="1、邻接表模型 - 分层数据 Hierarchical Data 探索">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-09T15:35:21.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/hierarchical-data-adjacency-list-model.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">1、邻接表模型 - 分层数据 Hierarchical Data 探索</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/hierarchical-data-recursion.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311123739.jpg" alt="1、递归 - 分层数据 Hierarchical Data 探索">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-16T12:35:00.000Z">2019-05-16</time></div>
+                    <a href="/2019/05/hierarchical-data-recursion.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">1、递归 - 分层数据 Hierarchical Data 探索</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/php-writing-microwave.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311141847.jpg" alt="用 PHP 写一个微波炉">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T11:02:08.000Z">2019-05-05</time></div>
+                    <a href="/2019/05/php-writing-microwave.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">用 PHP 写一个微波炉</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/ubuntu-install-oh-my-zsh.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311121350.jpg" alt="Ubuntu 16.04 下安装 zsh 和 oh-my-zsh">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-14T04:41:12.000Z">2019-04-14</time></div>
+                    <a href="/2019/04/ubuntu-install-oh-my-zsh.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Ubuntu 16.04 下安装 zsh 和 oh-my-zsh</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/ubuntu/">ubuntu</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AMQP/">
+                        <span class="tag">AMQP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Erlang/">
+                        <span class="tag">Erlang</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/LNMP/">
+                        <span class="tag">LNMP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OOP/">
+                        <span class="tag">OOP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PHP/">
+                        <span class="tag">PHP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RabbitMQ/">
+                        <span class="tag">RabbitMQ</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/message/">
+                        <span class="tag">message</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/oh-my-zsh/">
+                        <span class="tag">oh-my-zsh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/zsh/">
+                        <span class="tag">zsh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB/">
+                        <span class="tag">无限极分类</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%80%92%E5%BD%92/">
+                        <span class="tag">递归</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/hierarchical-data-nested-set-model.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311123739.jpg" alt="3、嵌套集合模型 - 分层数据 Hierarchical Data 探索">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-15T10:28:46.000Z">2019-08-15</time></div>
+                    <a href="/2019/08/hierarchical-data-nested-set-model.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">3、嵌套集合模型 - 分层数据 Hierarchical Data 探索</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/hierarchical-data-adjacency-list-model.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311123739.jpg" alt="1、邻接表模型 - 分层数据 Hierarchical Data 探索">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-09T15:35:21.000Z">2019-06-09</time></div>
+                    <a href="/2019/06/hierarchical-data-adjacency-list-model.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">1、邻接表模型 - 分层数据 Hierarchical Data 探索</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/hierarchical-data-recursion.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311123739.jpg" alt="1、递归 - 分层数据 Hierarchical Data 探索">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-16T12:35:00.000Z">2019-05-16</time></div>
+                    <a href="/2019/05/hierarchical-data-recursion.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">1、递归 - 分层数据 Hierarchical Data 探索</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/php-writing-microwave.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311141847.jpg" alt="用 PHP 写一个微波炉">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-05T11:02:08.000Z">2019-05-05</time></div>
+                    <a href="/2019/05/php-writing-microwave.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">用 PHP 写一个微波炉</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/ubuntu-install-oh-my-zsh.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311121350.jpg" alt="Ubuntu 16.04 下安装 zsh 和 oh-my-zsh">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-14T04:41:12.000Z">2019-04-14</time></div>
+                    <a href="/2019/04/ubuntu-install-oh-my-zsh.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Ubuntu 16.04 下安装 zsh 和 oh-my-zsh</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/ubuntu/">ubuntu</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AMQP/">
+                        <span class="tag">AMQP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Erlang/">
+                        <span class="tag">Erlang</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/LNMP/">
+                        <span class="tag">LNMP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OOP/">
+                        <span class="tag">OOP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PHP/">
+                        <span class="tag">PHP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RabbitMQ/">
+                        <span class="tag">RabbitMQ</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/message/">
+                        <span class="tag">message</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/oh-my-zsh/">
+                        <span class="tag">oh-my-zsh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/zsh/">
+                        <span class="tag">zsh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB/">
+                        <span class="tag">无限极分类</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E9%80%92%E5%BD%92/">
+                        <span class="tag">递归</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="macOS High Sierra 10.13.3全新搭建PHP开发环境" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Arun Fung&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://blog.arunfung.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

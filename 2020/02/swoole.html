@@ -7,21 +7,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="referrer" content="no-referrer" />
-<title>标签: zsh - Arun Fung Blog</title>
+<title>Swoole 介绍 - Arun Fung Blog</title>
 
 
-    <meta name="description" content="Arun Fung 的技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arun Fung Blog">
-<meta property="og:url" content="https://blog.arunfung.com/tags/zsh/index.html">
+    <meta name="description" content="Swoole 是一个为 PHP 用 C 和 C++ 编写的基于事件的高性能异步 &amp; 协程并行网络通信引擎 Swoole 官网、Swoole 文档、Swoole 源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swoole 介绍">
+<meta property="og:url" content="https://blog.arunfung.com/2020/02/swoole.html">
 <meta property="og:site_name" content="Arun Fung Blog">
-<meta property="og:description" content="Arun Fung 的技术博客">
+<meta property="og:description" content="Swoole 是一个为 PHP 用 C 和 C++ 编写的基于事件的高性能异步 &amp; 协程并行网络通信引擎 Swoole 官网、Swoole 文档、Swoole 源码">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.arunfung.com/images/og_image.png">
+<meta property="og:image" content="http://file.arunfung.com/file/images/20200312122823.png">
+<meta property="article:published_time" content="2020-02-12T16:01:12.000Z">
+<meta property="article:modified_time" content="2020-03-12T04:30:10.513Z">
 <meta property="article:author" content="Arun Fung">
-<meta property="article:tag" content="arunfung 博客 PHP">
+<meta property="article:tag" content="swoole-learn">
+<meta property="article:tag" content="swoole">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.arunfung.com/images/og_image.png">
+<meta name="twitter:image" content="http://file.arunfung.com/file/images/20200312122823.png">
 
 
 
@@ -79,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Arun Fung Blog" height="28">
+                <img src="/images/logo.svg" alt="Swoole 介绍" height="28">
             
             </a>
         </div>
@@ -120,41 +123,30 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">zsh</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-image">
-        <a href="/2019/04/ubuntu-install-oh-my-zsh.html" class="image is-7by1">
-            <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311121350.jpg" alt="Ubuntu 16.04 下安装 zsh 和 oh-my-zsh">
-        </a>
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://file.arunfung.com/file/images/20200312122823.png" alt="Swoole 介绍">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-14T04:41:12.000Z">2019-04-14</time>
+                <time class="level-item has-text-grey" datetime="2020-02-12T16:01:12.000Z">2020-02-13</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Ubuntu/">Ubuntu</a>
+                <a class="has-link-grey -link" href="/categories/Service/">Service</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 285 个字)
+                    5 分钟 读完 (大约 741 个字)
                 </span>
                 
                 
@@ -163,22 +155,65 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/04/ubuntu-install-oh-my-zsh.html">Ubuntu 16.04 下安装 zsh 和 oh-my-zsh</a>
+                Swoole 介绍
             
         </h1>
         <div class="content">
-            <p>一个能使你命令行变得漂亮的工具！</p>
-<p>提示：Mac系统下是默认安装了zsh，linux没有安装，所以需要自行安装</p>
+            <p>Swoole 是一个为 PHP 用 C 和 C++ 编写的基于事件的高性能异步 &amp; 协程并行网络通信引擎</p>
+<p><a href="https://www.swoole.com/">Swoole 官网</a>、<a href="https://wiki.swoole.com/">Swoole 文档</a>、<a href="https://github.com/swoole/swoole-src">Swoole 源码</a></p>
+<a id="more"></a>
+<p>使 PHP 开发人员可以编写高性能的异步并发 TCP、UDP、Unix Socket、HTTP，WebSocket 服务。Swoole 可以广泛应用于互联网、移动通信、企业软件、云计算、网络游戏、物联网（IOT）、车联网、智能家居等领域。 使用 PHP + Swoole 作为网络通信框架，可以使企业 IT 研发团队的效率大大提升，更加专注于开发创新产品。</p>
+<ol>
+<li>Swoole 是一个 PHP 的扩展， 是由 C/C++ 编写</li>
+<li>Swoole 是基于 <strong>事件</strong> 的高性能异步 &amp; 协程并行的网络通信引擎</li>
+</ol>
+<ul>
+<li>什么是事件？</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">鼠标和键盘点击事件，某一刻发生的动作简称：事件</span><br></pre></td></tr></table></figure>
+<ul>
+<li>异步 &amp; 协程并行<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序执行的方式，可以详细的了解下 网络 IO 模型</span><br></pre></td></tr></table></figure></li>
+<li>网络通信引擎<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">网络就是程序之间的数据交互的连接，从而达到资源共享和通信的目的。通信是人与人之间通过某种媒体进行的信息交流与传递。网络通信是通过网络将各个独立的设备进行连接，通过信息交换实现人与人，人与计算机，计算机与计算机之间的通信，网络通信最重要的就是网络通信协议。例如：TCP 服务器、TCP 客户端、UDP 服务、HTTP 服务、WebSocket</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Swoole-具备什么能力"><a href="#Swoole-具备什么能力" class="headerlink" title="Swoole 具备什么能力"></a>Swoole 具备什么能力</h3><ul>
+<li>事件驱动的异步编程模式</li>
+<li>异步TCP/UDP/HTTP/WebSocket/HTTP2协议的服务器端/客户端</li>
+<li>支持IPv4/IPv6/UnixSocket/TCP/UDP</li>
+<li>支持SSL/TLS隧道加密</li>
+<li>支持并发百万TCP长连接</li>
+<li>支持毫秒定时器</li>
+<li>支持异步/同步/协程</li>
+<li>支持CPU亲和性设置/守护进程</li>
+</ul>
+<h3 id="基于-Swoole-框架-amp-组件"><a href="#基于-Swoole-框架-amp-组件" class="headerlink" title="基于 Swoole 框架 &amp; 组件"></a>基于 Swoole 框架 &amp; 组件</h3><ul>
+<li><a href="https://www.hyperf.io">Hyperf</a> 是一个高性能、高灵活性的协程框架，存在丰富的可能性，如实现分布式中间件，微服务架构等</li>
+<li><a href="https://swoft.org">Swoft</a> 是一个现代化的面向切面的高性能协程全栈组件化框架</li>
+<li><a href="https://www.easyswoole.com/">Easyswoole</a> 是一个极简的高性能的框架，让代码开发就好像写echo “hello world”一样简单</li>
+<li><a href="http://mixphp.cn/">MixPHP</a> 是一个功能强大的单线程协程框架，轻量、简单而优雅</li>
+</ul>
+<h3 id="Swoole-的应用场景"><a href="#Swoole-的应用场景" class="headerlink" title="Swoole 的应用场景"></a>Swoole 的应用场景</h3><ul>
+<li>移动互联网API服务器</li>
+<li>物联网（IOT）</li>
+<li>微服务（Micro Service）</li>
+<li>高性能Web服务</li>
+<li>游戏服务器</li>
+<li>在线聊天系统</li>
+</ul>
+<p>配合传统型框架比如 laravel，thinkphp6.0进行加速(注意这些框架是ioc容器为核心的)</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/04/ubuntu-install-oh-my-zsh.html#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/swoole/" rel="tag">swoole</a>, <a class="has-link-grey -link" href="/tags/swoole-learn/" rel="tag">swoole-learn</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -186,9 +221,40 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/arunfung_we_chart_pay.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/linux-directory.html">
+                <span class="level-item">Linux 目录</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1127,7 +1193,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Arun Fung Blog" height="28">
+                    <img src="/images/logo.svg" alt="Swoole 介绍" height="28">
                 
                 </a>
                 <p class="is-size-7">

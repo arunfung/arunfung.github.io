@@ -7,19 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="referrer" content="no-referrer" />
-<title>标签: OOP - Arun Fung Blog</title>
+<title>CentOS 7 yum 安装 NGINX - Arun Fung Blog</title>
 
 
-    <meta name="description" content="Arun Fung 的技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arun Fung Blog">
-<meta property="og:url" content="https://blog.arunfung.com/tags/OOP/index.html">
+    <meta name="description" content="如果之前没有安装过 EPEL 源的需要安装。安装 EPEL 源： 1yum install epel-release">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 7 yum 安装 NGINX">
+<meta property="og:url" content="https://blog.arunfung.com/2020/02/centos-yum-install-nginx.html">
 <meta property="og:site_name" content="Arun Fung Blog">
-<meta property="og:description" content="Arun Fung 的技术博客">
+<meta property="og:description" content="如果之前没有安装过 EPEL 源的需要安装。安装 EPEL 源： 1yum install epel-release">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.arunfung.com/images/og_image.png">
+<meta property="article:published_time" content="2020-02-01T12:30:00.000Z">
+<meta property="article:modified_time" content="2020-03-12T00:26:15.223Z">
 <meta property="article:author" content="Arun Fung">
-<meta property="article:tag" content="arunfung 博客 PHP">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="swoole-learn">
+<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.arunfung.com/images/og_image.png">
 
@@ -79,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Arun Fung Blog" height="28">
+                <img src="/images/logo.svg" alt="CentOS 7 yum 安装 NGINX" height="28">
             
             </a>
         </div>
@@ -120,41 +124,24 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">OOP</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/05/php-writing-microwave.html" class="image is-7by1">
-            <img class="thumbnail" src="http://file.arunfung.com/file/images/20200311141847.jpg" alt="用 PHP 写一个微波炉">
-        </a>
-    </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-05T11:02:08.000Z">2019-05-05</time>
+                <time class="level-item has-text-grey" datetime="2020-02-01T12:30:00.000Z">2020-02-01</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+                <a class="has-link-grey -link" href="/categories/CentOS/">CentOS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 533 个字)
+                    3 分钟 读完 (大约 428 个字)
                 </span>
                 
                 
@@ -163,21 +150,51 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/05/php-writing-microwave.html">用 PHP 写一个微波炉</a>
+                CentOS 7 yum 安装 NGINX
             
         </h1>
         <div class="content">
-            <p> 在网上看到一个笔试题，感觉挺有意思的，然后我尝试着写一写，欢迎各位大佬指正。</p>
+            <p>如果之前没有安装过 EPEL 源的需要安装。<br>安装 EPEL 源：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>安装 Nginx：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nginx</span><br></pre></td></tr></table></figure>
+<p>启用并启动 Nginx 服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> nginx <span class="comment"># 启用自启</span></span><br><span class="line">systemctl start nginx <span class="comment"># 启动</span></span><br><span class="line">systemctl stop nginx <span class="comment"># 停止</span></span><br><span class="line">systemctl restart nginx <span class="comment"># 重启</span></span><br><span class="line">systemctl reload nginx <span class="comment"># 重载</span></span><br><span class="line">systemctl <span class="built_in">disable</span> nginx <span class="comment"># 禁用Nginx服务自启</span></span><br></pre></td></tr></table></figure>
+<p>打开端口80和443：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=http </span><br><span class="line">sudo firewall-cmd --permanent --zone=public --add-service=https </span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h3 id="Nginx配置文件的结构和最佳实践"><a href="#Nginx配置文件的结构和最佳实践" class="headerlink" title="Nginx配置文件的结构和最佳实践"></a>Nginx配置文件的结构和最佳实践</h3><ul>
+<li>所有Nginx配置文件都位于/etc/nginx/目录中。</li>
+<li>Nginx的主要配置文件是/etc/nginx/nginx.conf。</li>
+<li>为了使Nginx配置更易于维护，建议为每个域创建一个单独的配置文件。</li>
+<li>新的Nginx服务器阻止文件必须以结尾.conf并存储在/etc/nginx/conf.d目录中。您可以根据需要拥有任意数量的服务器块。</li>
+<li>遵循标准的命名约定是一个好主意，例如，如果您的域名是，mydomain.com那么您的配置文件应命名为/etc/nginx/conf.d/mydomain.com.conf</li>
+<li>如果您在域服务器块中使用可重复的配置段，则最好创建一个名为将/etc/nginx/snippets这些段重构为片段的目录，并将片段文件包括到服务器块中。</li>
+<li>Nginx日志文件（access.log和error.log）位于/var/log/nginx/目录中。建议有不同access，并error为每个服务器模块的日志文件。</li>
+<li>您可以将域文档的根目录设置为所需的任何位置。webroot的最常见位置包括：<ul>
+<li>/home/<user_name>/<site_name></li>
+<li>/var/www/<site_name></li>
+<li>/var/www/html/<site_name></li>
+<li>/opt/<site_name></li>
+<li>/usr/share/nginx/html</li>
+</ul>
+</li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/05/php-writing-microwave.html#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/centos/" rel="tag">centos</a>, <a class="has-link-grey -link" href="/tags/nginx/" rel="tag">nginx</a>, <a class="has-link-grey -link" href="/tags/swoole-learn/" rel="tag">swoole-learn</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -185,9 +202,40 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/arunfung_we_chart_pay.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/centos-yum-install-php7.3.html">
+                <span class="level-item">CentOS 7 yum 安装 PHP7.3</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1076,7 +1124,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Arun Fung Blog" height="28">
+                    <img src="/images/logo.svg" alt="CentOS 7 yum 安装 NGINX" height="28">
                 
                 </a>
                 <p class="is-size-7">

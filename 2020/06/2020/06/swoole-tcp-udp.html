@@ -7,21 +7,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="referrer" content="no-referrer" />
-<title>标签: nginx - Arun Fung Blog</title>
+<title>Swoole 中 TCP、UDP 和长连接、短连接 - Arun Fung Blog</title>
 
 
-    <meta name="description" content="Arun Fung 的技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arun Fung Blog">
-<meta property="og:url" content="https://blog.arunfung.com/tags/nginx/index.html">
+    <meta name="description" content="TCP 服务swoole 文档 - TCP 服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swoole 中 TCP、UDP 和长连接、短连接">
+<meta property="og:url" content="https://blog.arunfung.com/2020/06/2020/06/swoole-tcp-udp.html">
 <meta property="og:site_name" content="Arun Fung Blog">
-<meta property="og:description" content="Arun Fung 的技术博客">
+<meta property="og:description" content="TCP 服务swoole 文档 - TCP 服务">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.arunfung.com/images/og_image.png">
+<meta property="og:image" content="http://file.arunfung.com/file/images/20200312122823.png">
+<meta property="article:published_time" content="2020-06-29T14:12:36.000Z">
+<meta property="article:modified_time" content="2020-06-29T14:14:11.666Z">
 <meta property="article:author" content="Arun Fung">
-<meta property="article:tag" content="arunfung 博客 PHP">
+<meta property="article:tag" content="swoole-learn">
+<meta property="article:tag" content="swoole">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.arunfung.com/images/og_image.png">
+<meta name="twitter:image" content="http://file.arunfung.com/file/images/20200312122823.png">
 
 
 
@@ -79,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Arun Fung Blog" height="28">
+                <img src="/images/logo.svg" alt="Swoole 中 TCP、UDP 和长连接、短连接" height="28">
             
             </a>
         </div>
@@ -120,25 +123,20 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">nginx</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://file.arunfung.com/file/images/20200312122823.png" alt="Swoole 中 TCP、UDP 和长连接、短连接">
+        </span>
+    </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-08T13:33:00.000Z">2020-02-08</time>
+                <time class="level-item has-text-grey" datetime="2020-06-29T14:12:36.000Z">2020-06-29</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Service/">Service</a>
@@ -148,7 +146,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 551 个字)
+                    5 分钟 读完 (大约 803 个字)
                 </span>
                 
                 
@@ -157,21 +155,56 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/02/nginx-and-php-operating-mechanism.html">Nginx 与 PHP 的运行机制</a>
+                Swoole 中 TCP、UDP 和长连接、短连接
             
         </h1>
         <div class="content">
-            <h4 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h4><p><a href="https://nginx.org/">nginx</a> 是一个高性能的 HTTP 和反向代理服务器</p>
+            <h3 id="TCP-服务"><a href="#TCP-服务" class="headerlink" title="TCP 服务"></a>TCP 服务</h3><p><a href="https://wiki.swoole.com/#/start/start_tcp_server">swoole 文档 - TCP 服务</a> </p>
+<a id="more"></a>
+<h4 id="tcp-服务端"><a href="#tcp-服务端" class="headerlink" title="tcp 服务端"></a>tcp 服务端</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 1. 创建 swoole 默认创建的是一个同步的阻塞tcp服务</span></span><br><span class="line">$host = <span class="string">"0.0.0.0"</span>; <span class="comment">// 0.0.0.0 代表接听所有</span></span><br><span class="line"><span class="comment">// 默认是tcp</span></span><br><span class="line">$serv = <span class="keyword">new</span> Swoole\Server($host, <span class="number">9000</span>);</span><br><span class="line"><span class="comment">// 添加配置</span></span><br><span class="line">$serv-&gt;set([</span><br><span class="line">  <span class="string">'heartbeat_idle_time'</span> =&gt; <span class="number">10</span>,</span><br><span class="line">  <span class="string">'heartbeat_check_interval'</span> =&gt; <span class="number">3</span>,</span><br><span class="line">]);</span><br><span class="line"><span class="comment">// 2. 注册事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Start'</span>, <span class="function"><span class="keyword">function</span><span class="params">($serv)</span> <span class="title">use</span><span class="params">($host)</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"启动 swoole 监听的信息tcp:$host:9000\n"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听连接进入事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Connect'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Client: 连接成功.\n"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听数据接收事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Receive'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd, $from_id, $data)</span> </span>&#123;</span><br><span class="line">    $serv-&gt;send($fd, <span class="string">"Server: "</span>.$data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听连接关闭事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Close'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"断开连接.\n"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 3. 启动服务器</span></span><br><span class="line"><span class="comment">// 阻塞</span></span><br><span class="line">$serv-&gt;start(); <span class="comment">// 阻塞与非阻塞</span></span><br></pre></td></tr></table></figure>
+
+<p>这样就创建了一个 TCP 服务器，监听本机 9000 端口。</p>
+<p>然后先启动服务，然后再通过 telnet 命令去连接试试</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> php swoole_tcp_server.php</span><br><span class="line"> <span class="comment"># 启动 swoole 监听的信息tcp:0.0.0.0:9000</span></span><br><span class="line"></span><br><span class="line"> telnet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">9000</span></span><br><span class="line"><span class="comment"># Trying 127.0.0.1...</span></span><br><span class="line"><span class="comment"># Connected to localhost.</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="tcp-客户端"><a href="#tcp-客户端" class="headerlink" title="tcp 客户端"></a>tcp 客户端</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 同步客户端</span></span><br><span class="line">$client = <span class="keyword">new</span> swoole_client(SWOOLE_SOCK_TCP);</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接到服务器</span></span><br><span class="line"><span class="keyword">if</span> (!$client-&gt;connect(<span class="string">'127.0.0.1'</span>, <span class="number">9000</span>, <span class="number">0.5</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"connect failed."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">order</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     sleep(<span class="number">4</span>);<span class="comment">// 假设某一些操作造成时间很长</span></span><br><span class="line">     <span class="keyword">return</span> <span class="string">"order\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向服务器发送数据</span></span><br><span class="line"><span class="keyword">if</span> (!$client-&gt;send(order()))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"send failed."</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//从服务器接收数据</span></span><br><span class="line">$data = $client-&gt;recv();</span><br><span class="line"><span class="keyword">if</span> (!$data)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"recv failed."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭连接</span></span><br><span class="line">$client-&gt;close();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回结果给用户</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'订单生成成功'</span>.<span class="string">"\n"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>运行 tcp 客户端去连接服务端,假设处理需要时间，最后就会输出订单生成成功</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php swoole_tcp_client.php</span><br><span class="line"><span class="comment"># 订单生成成功</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="UDP-服务"><a href="#UDP-服务" class="headerlink" title="UDP 服务"></a>UDP 服务</h3><p><a href="https://wiki.swoole.com/#/start/start_udp_server">swoole 文档 - UDP 服务</a></p>
+<h4 id="udp-服务端"><a href="#udp-服务端" class="headerlink" title="udp 服务端"></a>udp 服务端</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建Server对象，监听 127.0.0.1:9000端口，类型为SWOOLE_SOCK_UDP</span></span><br><span class="line">$serv = <span class="keyword">new</span> swoole_server(<span class="string">"0.0.0.0"</span>, <span class="number">9000</span>, SWOOLE_PROCESS, SWOOLE_SOCK_UDP);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听数据接收事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Packet'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $data, $clientInfo)</span> </span>&#123;</span><br><span class="line">    $serv-&gt;sendto($clientInfo[<span class="string">'address'</span>], $clientInfo[<span class="string">'port'</span>], <span class="string">"Server "</span>.$data);</span><br><span class="line">    var_dump($clientInfo);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"0.0.0.0:9000\n"</span>;</span><br><span class="line"><span class="comment">//启动服务器</span></span><br><span class="line">$serv-&gt;start();</span><br></pre></td></tr></table></figure>
+
+<h4 id="udp-客户端"><a href="#udp-客户端" class="headerlink" title="udp 客户端"></a>udp 客户端</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$client = <span class="keyword">new</span> swoole_client(SWOOLE_SOCK_UDP);</span><br><span class="line">$client-&gt;sendTo(<span class="string">'127.0.0.1'</span>, <span class="number">9000</span>, <span class="string">'upd'</span>);</span><br><span class="line"><span class="comment">// 接收服务端信息</span></span><br><span class="line">$data = $client-&gt;recv();</span><br><span class="line">var_dump($data);</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="两种协议"><a href="#两种协议" class="headerlink" title="两种协议"></a>两种协议</h5><blockquote>
+<p>TCP(Transmission Control Protocol 传输控制协议）：是一种面向连接的，可靠的，基于字节流的传输通信协议。</p>
+</blockquote>
+<blockquote>
+<p>UDP(User Datagram Protocol 用户数据报协议）：是一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。</p>
+</blockquote>
+<p>UDP 服务器与 TCP 服务器不同，UDP 没有连接的概念。启动 Server 后，客户端无需 Connect，直接可以向 Server 监听的 9502 端口发送数据包。</p>
+<h3 id="长连接、短连接"><a href="#长连接、短连接" class="headerlink" title="长连接、短连接"></a>长连接、短连接</h3><ul>
+<li><p>长连接： 客户端和服务端建立连接后不进行断开，之后客户端再次访问这个服务器上的内容时，继续使用这一条连接通道。</p>
+</li>
+<li><p>短连接： 客户端和服务端建立连接，发送完数据后立马断开连接。下次要取数据，需要再次建立连接。</p>
+</li>
+</ul>
+<h4 id="Http长连接和TCP长连接的区别"><a href="#Http长连接和TCP长连接的区别" class="headerlink" title="Http长连接和TCP长连接的区别"></a>Http长连接和TCP长连接的区别</h4><p>Http长连接 和 TCP长连接的区别在于: TCP 的长连接需要自己去维护一套心跳策略。，而Http只需要在请求头加入<code>keep-alive:true</code>即可实现长连接。</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/02/nginx-and-php-operating-mechanism.html#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/swoole/" rel="tag">swoole</a>, <a class="has-link-grey -link" href="/tags/swoole-learn/" rel="tag">swoole-learn</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -179,63 +212,40 @@
 
 
 
-
-
-
-
-
-    
 <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-01T12:30:00.000Z">2020-02-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/CentOS/">CentOS</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 428 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
             
-                <a class="has-link-black-ter" href="/2020/02/centos-yum-install-nginx.html">CentOS 7 yum 安装 NGINX</a>
-            
-        </h1>
-        <div class="content">
-            <p>如果之前没有安装过 EPEL 源的需要安装。<br>安装 EPEL 源：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release</span><br></pre></td></tr></table></figure>
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/arunfung_we_chart_pay.jpg" alt="微信"></div>
+</a>
+
+                
         </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/02/centos-yum-install-nginx.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/swoole.html">
+                <span class="level-item">Swoole 中涉及的一些基本概念</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1218,7 +1228,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Arun Fung Blog" height="28">
+                    <img src="/images/logo.svg" alt="Swoole 中 TCP、UDP 和长连接、短连接" height="28">
                 
                 </a>
                 <p class="is-size-7">
